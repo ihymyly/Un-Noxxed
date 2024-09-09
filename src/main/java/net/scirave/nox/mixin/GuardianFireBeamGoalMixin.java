@@ -26,7 +26,6 @@ public class GuardianFireBeamGoalMixin {
         if (instance.getTarget() instanceof PlayerEntity) {
             return instance.isSilent();
         }
-        return NoxConfig.guardianConstantBeam;
+        return false;
     }
-
 }
