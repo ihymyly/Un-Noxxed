@@ -26,6 +26,6 @@ public class GuardianFireBeamGoalMixin {
         if (instance.getTarget() instanceof PlayerEntity) {
             return instance.isSilent();
         }
-        return false;
+        return true;
     }
 }
