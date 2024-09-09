@@ -13,6 +13,7 @@ package net.scirave.nox.mixin;
 
 import net.minecraft.entity.mob.GuardianEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.scirave.nox.config.NoxConfig;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -25,7 +26,7 @@ public class GuardianFireBeamGoalMixin {
         if (instance.getTarget() instanceof PlayerEntity) {
             return instance.isSilent();
         }
-        return true;
+        return NoxConfig.guardianConstantBeam;
     }
 
 }
