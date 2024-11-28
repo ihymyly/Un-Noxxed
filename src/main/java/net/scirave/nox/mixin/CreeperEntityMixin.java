@@ -19,7 +19,6 @@ import net.minecraft.entity.ai.goal.PounceAtTargetGoal;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.CreeperEntity;
-import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.world.World;
 import net.scirave.nox.config.NoxConfig;
 import net.scirave.nox.goals.Nox$CreeperBreachGoal;
