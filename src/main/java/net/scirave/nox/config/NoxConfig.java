@@ -100,6 +100,8 @@ public class NoxConfig extends MidnightConfig {
     @Entry
     public static boolean creepersPounceAtTarget = true;
     @Entry
+    public static int creepersPounceCooldown = 10;
+    @Entry
     public static boolean creepersExplodeOnDeath = true;
     @Entry
     public static boolean creepersBreachWalls = true;
@@ -386,6 +388,8 @@ public class NoxConfig extends MidnightConfig {
     public static Comment comment_zombies;
     @Entry
     public static boolean zombiesPounceAtTarget = true;
+    @Entry
+    public static int zombiesPounceCooldown = 10;
     @Entry
     public static double zombieKnockbackResistanceBonus = 0.3;
     @Entry

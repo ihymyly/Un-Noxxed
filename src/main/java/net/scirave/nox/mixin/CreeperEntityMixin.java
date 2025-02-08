@@ -34,7 +34,7 @@ import static net.scirave.nox.config.NoxConfig.creepersExplodeOnDeath;
 
 
 @Mixin(CreeperEntity.class)
-public abstract class CreeperEntityMixin extends HostileEntityMixin implements Nox$CreeperBreachInterface, Nox$PouncingEntityInterface {
+public abstract class CreeperEntityMixin extends HostileEntityMixin implements Nox$CreeperBreachInterface, Nox$PouncingEntityInterface{
 
     @Shadow protected abstract void explode();
 
@@ -82,4 +82,8 @@ public abstract class CreeperEntityMixin extends HostileEntityMixin implements N
         return NoxConfig.creepersPounceAtTarget;
     }
 
+    @Override
+    public int nox$pounceCooldown() {
+        return NoxConfig.creepersPounceCooldown;
+    }
 }
