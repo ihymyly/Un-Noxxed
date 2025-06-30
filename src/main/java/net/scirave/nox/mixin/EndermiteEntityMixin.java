@@ -17,6 +17,10 @@ import net.minecraft.entity.attribute.EntityAttributeInstance;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
+import net.minecraft.entity.damage.DamageType;
+import net.minecraft.entity.damage.DamageTypes;
+import net.minecraft.registry.entry.RegistryEntry;
+import net.minecraft.registry.tag.DamageTypeTags;
 import net.minecraft.entity.mob.EndermiteEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -67,12 +71,9 @@ public abstract class EndermiteEntityMixin extends HostileEntityMixin {
 
     @Override
     public void nox$shouldTakeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        super.nox$shouldTakeDamage(source, amount, cir);
-        if (source.getName().equals("fall"))
+        if (source.isOf(DamageTypes.IS_FALL)) {
             cir.setReturnValue(!NoxConfig.endermitesImmuneToFallDamage);
-        else if (source.getName().equals("inWall"))
+        else if (source.isOf(IN_WALL))
             cir.setReturnValue(NoxConfig.endermitesCanSuffocate);
     }
-
-
 }
