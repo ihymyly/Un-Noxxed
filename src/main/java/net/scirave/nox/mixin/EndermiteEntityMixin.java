@@ -71,7 +71,7 @@ public abstract class EndermiteEntityMixin extends HostileEntityMixin {
 
     @Override
     public void nox$shouldTakeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if (source.isOf(DamageTypes.IS_FALL)) {
+        if (source.isOf(DamageTypes.IS_FALL)) 
             cir.setReturnValue(!NoxConfig.endermitesImmuneToFallDamage);
     }
 }
