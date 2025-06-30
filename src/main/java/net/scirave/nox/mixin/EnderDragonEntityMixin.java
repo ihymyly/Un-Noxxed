@@ -38,7 +38,7 @@ public abstract class EnderDragonEntityMixin extends MobEntityMixin{
 
     @Override
     public void nox$shouldTakeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if ((source.getTypeRegistryEntry().isIn(DamageTypeTags.IS_EXPLOSION) && nox$enderDragonIsImmuneToExplosionDamage)) {
+        if ((source.getTypeRegistryEntry().isIn(DamageTypeTags.IS_EXPLOSION) && NoxConfig.enderDragonIsImmuneToExplosionDamage)) {
             cir.setReturnValue(false);
         }
     }
