@@ -47,7 +47,7 @@ public abstract class SpiderEntityMixin extends HostileEntityMixin {
     @Override
     public void nox$shouldTakeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         super.nox$shouldTakeDamage(source, amount, cir);
-        if ((source.isOf(DamageTypes.FALL)) && NoxConfig.spidersImmuneToFallDamage)
+        if ((source.isOf(DamageTypes.FALL)) && NoxConfig.spidersImmuneToFallDamage) {
             cir.setReturnValue(false);
         }
     }
