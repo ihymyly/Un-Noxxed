@@ -61,10 +61,10 @@ public abstract class SilverfishEntityMixin extends HostileEntityMixin implement
         super.nox$shouldTakeDamage(source, amount, cir);
         if ((source.isOf(DamageTypes.FALL)) && NoxConfig.silverfishImmuneToFallDamage)
             cir.setReturnValue(false);
-        if ((source.isOf(DamageTypes.DROWN)) && NoxConfig.silverfishCanDrown)
-            cir.setReturnValue(true);
-        if ((source.isOf(DamageTypes.IN_WALL)) && NoxConfig.silverfishCanSuffocate)
-            cir.setReturnValue(true);
+        if ((source.isOf(DamageTypes.DROWN)) && !NoxConfig.silverfishCanDrown)
+            cir.setReturnValue(false);
+        if ((source.isOf(DamageTypes.IN_WALL)) && !NoxConfig.silverfishCanSuffocate)
+            cir.setReturnValue(false);
     }
 
     @Override
