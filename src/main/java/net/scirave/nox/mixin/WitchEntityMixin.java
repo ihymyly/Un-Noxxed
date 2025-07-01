@@ -102,10 +102,12 @@ public abstract class WitchEntityMixin extends HostileEntityMixin {
     @Override
     public void nox$shouldTakeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         super.nox$shouldTakeDamage(source, amount, cir);
-        if (source.equals(this.getWorld().getDamageSources().magic()))
-            cir.setReturnValue(NoxConfig.witchesTakeMagicDamage);
-        if (source.getTypeRegistryEntry().isIn(DamageTypeTags.IS_PROJECTILE) && !source.getTypeRegistryEntry().isIn(DamageTypeTags.BYPASSES_ARMOR))
-            cir.setReturnValue(!NoxConfig.witchesResistProjectiles);
+        if (source.isOf(DamageTypes.MAGIC) && NoxConfig.witchesTakeMagicDamage)
+            cir.setReturnValue(true);
+        if (source.isOf(DamageTypes.INDIRECT_MAGIC) && NoxConfig.witchesTakeMagicDamage)
+            cir.setReturnValue(true);
+        if (source.isOf(DamageTypes.ARROW) && NoxConfig.witchesResistProjectiles)
+            cir.setReturnValue(false);
     }
 
     @Redirect(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/mob/WitchEntity;isDrinking()Z"))

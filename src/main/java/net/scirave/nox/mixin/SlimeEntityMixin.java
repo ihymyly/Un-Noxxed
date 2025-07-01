@@ -124,10 +124,10 @@ public abstract class SlimeEntityMixin extends MobEntityMixin {
     @Override
     public void nox$shouldTakeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         super.nox$shouldTakeDamage(source, amount, cir);
-        if (source.getName().equals("fall"))
-            cir.setReturnValue(!NoxConfig.slimesImmuneToFallDamage);
-        else if (source.getTypeRegistryEntry().isIn(DamageTypeTags.IS_PROJECTILE) && !source.getTypeRegistryEntry().isIn(DamageTypeTags.BYPASSES_ARMOR))
-            cir.setReturnValue(!NoxConfig.slimesResistProjectiles);
+        if ((source.isOf(DamageTypes.FALL)) && NoxConfig.slimesImmuneToFallDamage)
+            cir.setReturnValue(false);
+        if ((source.isOf(DamageTypes.ARROW)) && NoxConfig.slimesResistProjectiles)
+            cir.setReturnValue(false);
     }
 
     @Override

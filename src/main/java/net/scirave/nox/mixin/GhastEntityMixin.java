@@ -31,7 +31,7 @@ public abstract class GhastEntityMixin extends MobEntityMixin {
     @Inject(method = "isFireballFromPlayer", at = @At("HEAD"), cancellable = true)
     private static void nox$ghastNoInstantDeath(DamageSource damageSource, CallbackInfoReturnable<Boolean> cir) {
         if (NoxConfig.ghastFireballsInstantlyKillGhasts)
-            cir.setReturnValue(false);
+            cir.setReturnValue(true);
     }
 
     @Inject(method = "getFireballStrength", at = @At("RETURN"), cancellable = true)

@@ -44,10 +44,12 @@ public abstract class EvokerEntityMixin extends HostileEntityMixin {
     @Override
     public void nox$shouldTakeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         super.nox$shouldTakeDamage(source, amount, cir);
-        if (source.equals(this.getWorld().getDamageSources().magic()))
-            cir.setReturnValue(!NoxConfig.evokersImmuneToMagic);
-        if (source.getTypeRegistryEntry().isIn(DamageTypeTags.IS_PROJECTILE) && !source.getTypeRegistryEntry().isIn(DamageTypeTags.BYPASSES_ARMOR))
-            cir.setReturnValue(!NoxConfig.evokersResistProjectiles);
+        if (source.isOf(DamageTypes.MAGIC) && NoxConfig.evokersImmuneToMagic)
+            cir.setReturnValue(false);
+        if (source.isOf(DamageTypes.INDIRECT_MAGIC) && NoxConfig.evokersImmuneToMagic)
+            cir.setReturnValue(false);
+        if (source.isOf(DamageTypes.ARROW) && NoxConfig.evokersResistProjectiles)
+            cir.setReturnValue(false);
     }
 
 }
