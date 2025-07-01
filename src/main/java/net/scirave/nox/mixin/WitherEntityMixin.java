@@ -18,6 +18,8 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.WitherEntity;
+import net.minecraft.entity.damage.DamageType;
+import net.minecraft.entity.damage.DamageTypes;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.mob.WitherSkeletonEntity;
 import net.minecraft.server.world.ServerWorld;
