@@ -133,7 +133,7 @@ public abstract class WitherEntityMixin extends HostileEntityMixin {
 
     @Override
     public void nox$shouldTakeDamage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        if ((source.isOf(DamageTypes.FALL) && NoxConfig.withersSuffocate)) {
+        if ((source.isOf(DamageTypes.IN_WALL) && NoxConfig.withersSuffocate)) {
             cir.setReturnValue(true);
         }
     }
